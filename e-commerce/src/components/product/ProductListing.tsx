@@ -49,9 +49,7 @@ const materialOptions: FilterOption[] = [
   { label: "Metal", value: "Metal" },
   { label: "Leather", value: "Leather" },
 ];
-const offerOptions: FilterOption[] = [
-  { label: "On offer", value: "yes" },
-];
+const offerOptions: FilterOption[] = [{ label: "On offer", value: "yes" }];
 const sortOptions: FilterOption[] = [
   { label: "Price: Low to High", value: "price-asc" },
   { label: "Price: High to Low", value: "price-desc" },
@@ -91,12 +89,42 @@ export default function ProductListing({ products }: { products: Product[] }) {
   return (
     <section id="products" className="mx-auto max-w-6xl px-4 pb-16">
       <div className="mt-5 flex flex-wrap items-center gap-2">
-        <FilterDropdown label="Headphone Type" options={typeOptions} value={filters.type} onChange={setFilter("type")} />
-        <FilterDropdown label="Price" options={priceOptions} value={filters.price} onChange={setFilter("price")} />
-        <FilterDropdown label="Review" options={reviewOptions} value={filters.review} onChange={setFilter("review")} />
-        <FilterDropdown label="Color" options={colorOptions} value={filters.color} onChange={setFilter("color")} />
-        <FilterDropdown label="Material" options={materialOptions} value={filters.material} onChange={setFilter("material")} />
-        <FilterDropdown label="Offer" options={offerOptions} value={filters.offer} onChange={setFilter("offer")} />
+        <FilterDropdown
+          label="Headphone Type"
+          options={typeOptions}
+          value={filters.type}
+          onChange={setFilter("type")}
+        />
+        <FilterDropdown
+          label="Price"
+          options={priceOptions}
+          value={filters.price}
+          onChange={setFilter("price")}
+        />
+        <FilterDropdown
+          label="Review"
+          options={reviewOptions}
+          value={filters.review}
+          onChange={setFilter("review")}
+        />
+        <FilterDropdown
+          label="Color"
+          options={colorOptions}
+          value={filters.color}
+          onChange={setFilter("color")}
+        />
+        <FilterDropdown
+          label="Material"
+          options={materialOptions}
+          value={filters.material}
+          onChange={setFilter("material")}
+        />
+        <FilterDropdown
+          label="Offer"
+          options={offerOptions}
+          value={filters.offer}
+          onChange={setFilter("offer")}
+        />
         <button
           type="button"
           onClick={() => setFilters(emptyFilters)}

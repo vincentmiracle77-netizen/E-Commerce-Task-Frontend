@@ -10,8 +10,13 @@ import type { Product } from "@/types/product";
 
 export default function ProductCard({ product }: { product: Product }) {
   const [wishlisted, setWishlisted] = useState(false);
-  const { isInCart, toggleItem } = useCart();
+  const { isInCart, addItem, openCart } = useCart();
   const inCart = isInCart(product.id);
+
+  const handleAddToCart = () => {
+    if (!inCart) addItem(product.id);
+    openCart();
+  };
 
   return (
     <article className="flex flex-col">
@@ -49,8 +54,10 @@ export default function ProductCard({ product }: { product: Product }) {
         size="sm"
         variant={inCart ? "solid" : "outline"}
         className="mt-3 w-full"
-        aria-pressed={inCart}
-        onClick={() => toggleItem(product.id)}
+        aria-label={
+          inCart ? `View ${product.name} in cart` : `Add ${product.name} to cart`
+        }
+        onClick={handleAddToCart}
       >
         {inCart ? "Added" : "Add to Cart"}
       </Button>
